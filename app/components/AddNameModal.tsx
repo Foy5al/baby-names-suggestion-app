@@ -57,18 +57,55 @@ export default function AddNameModal() {
                 </div>
 
                 {/* Gender Selection */}
-                <div>
-                  <label className="block text-sm font-medium text-gray-900 dark:text-gray-300 mb-1">
-                    Gender
-                  </label>
-                  <select
-                    name="gender"
-                    className="w-full p-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 outline-none"
-                  >
-                    <option className="bg-indigo-600 text-white" value="BOY">Boy 🧸</option>
-                    <option className="bg-pink-600 text-white" value="GIRL">Girl 🎀</option>
-                  </select>
-                </div>
+               <div className="max-w-md">
+  <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-4">
+    Select Gender
+  </label>
+  
+  <div className="grid grid-cols-2 gap-4">
+    {/* Boy Option */}
+    <label className="relative flex cursor-pointer flex-col items-center justify-center rounded-2xl border-2 border-gray-100 bg-white p-5 transition-all duration-200 
+      hover:border-blue-200 
+      has-[:checked]:border-blue-500 has-[:checked]:bg-blue-500/50 
+      dark:bg-gray-900 dark:border-gray-800 dark:has-[:checked]:border-blue-400">
+      
+      <input type="radio" name="gender" value="BOY" className="sr-only" defaultChecked />
+      
+      <span className="text-3xl mb-2">👔</span>
+      <span className="text-sm font-bold text-gray-900 dark:text-white">Boy</span>
+      
+      {/* Optional: Blue checkmark indicator when selected */}
+      <div className="absolute top-2 right-2 opacity-0 has-[:checked]:opacity-100">
+         <div className="bg-blue-600 rounded-full p-1">
+            <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7" />
+            </svg>
+         </div>
+      </div>
+    </label>
+
+    {/* Girl Option */}
+    <label className="relative flex cursor-pointer flex-col items-center justify-center rounded-2xl border-2 border-gray-100 bg-white p-5 transition-all duration-200 
+      hover:border-pink-200 
+      has-[:checked]:border-pink-500 has-[:checked]:bg-pink-500/50 
+      dark:bg-gray-900 dark:border-gray-800 dark:has-[:checked]:border-pink-400">
+      
+      <input type="radio" name="gender" value="GIRL" className="sr-only" />
+      
+      <span className="text-3xl mb-2">🎀</span>
+      <span className="text-sm font-bold text-gray-900 dark:text-white">Girl</span>
+      
+      {/* Optional: Pink checkmark indicator when selected */}
+      <div className="absolute top-2 right-2 opacity-0 has-[:checked]:opacity-100">
+         <div className="bg-pink-600 rounded-full p-1">
+            <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7" />
+            </svg>
+         </div>
+      </div>
+    </label>
+  </div>
+</div>
 
                 {/* Meaning Input */}
                 <div>

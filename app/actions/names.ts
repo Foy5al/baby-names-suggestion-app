@@ -18,7 +18,7 @@ async function getVoterId() {
 export async function addName(formData: FormData) {
   const name = formData.get("name") as string;
   const meaning = formData.get("meaning") as string;
-  const gender = formData.get("gender") as string;
+  const gender = formData.get("gender") as "BOY" | "GIRL";
   const suggestedBy = formData.get("suggestedBy") as string;
 
   await prisma.nameSuggestion.create({

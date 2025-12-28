@@ -76,7 +76,7 @@ export default async function HomePage() {
           {/* Boys Column */}
            <section>
             <h2 className="text-blue-600 dark:text-blue-400 font-bold mb-4 flex items-center gap-2 text-xl">
-              🧸 Boys
+              👔 Boys
             </h2>
             <div className="space-y-3">
               {boys.length > 0 ? (
