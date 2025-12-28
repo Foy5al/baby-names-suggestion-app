@@ -52,7 +52,7 @@ export default function NameCard({ item, toggleVote, hasVoted: initialHasVoted }
       onClick={() => setShowMeaning(!showMeaning)}
     >
       <div className="flex justify-between items-start">
-        <div>
+        <div className="cursor-pointer">
           <div className="flex items-center gap-2">
             <span
               className={`text-xs px-2 py-0.5 rounded-full font-medium ${
@@ -74,7 +74,7 @@ export default function NameCard({ item, toggleVote, hasVoted: initialHasVoted }
 
         <button
           onClick={handleVote}
-          className={`flex items-center gap-1 px-3 py-1 rounded-full border transition font-medium ${
+          className={`flex items-center gap-1 px-3 py-1 rounded-full border transition font-medium cursor-pointer ${
             hasVoted
               ? "bg-pink-500/50 text-white border-pink-500 dark:bg-pink-600/50 dark:border-pink-600"
               : "bg-white text-gray-500 border-gray-200 hover:border-pink-300 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-300 dark:hover:border-pink-400"
