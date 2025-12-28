@@ -5,8 +5,9 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
-  url      = "file:./dev.db"
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL") 
 }
 
 enum Gender {
@@ -22,6 +23,8 @@ model NameSuggestion {
   suggestedBy String
   votes       Vote[]
   createdAt   DateTime @default(now())
+
+  @@map("name_suggestions")
 }
 
 model Vote {
@@ -30,5 +33,6 @@ model Vote {
   nameSuggestion   NameSuggestion @relation(fields: [nameId], references: [id])
   nameId           String
 
-  @@unique([voterFingerprint, nameId]) // This prevents duplicate votes
+  @@unique([voterFingerprint, nameId])
+  @@map("votes")
 }
