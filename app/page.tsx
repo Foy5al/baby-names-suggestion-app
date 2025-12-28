@@ -23,10 +23,17 @@ function isGender(gender: string): gender is "BOY" | "GIRL" {
 export default async function HomePage() {
   // Fetch names. We remove the "?." because if database fails,
   // we want to see the real error, not a "undefined" crash.
-  const names = await prisma.nameSuggestion.findMany({
-    include: { votes: true },
-    orderBy: { createdAt: "desc" },
-  });
+  let names = [];
+  try {
+    names = await prisma.nameSuggestion.findMany({
+      include: { votes: true },
+      orderBy: { createdAt: "desc" },
+    });
+  } catch (error) {
+    console.error("Database not ready yet:", error);
+    // This allows the build to finish even if the DB is acting up
+    return <div>Database is connecting... please refresh.</div>; 
+  }
   // Filter out any names with invalid genders (shouldn't happen if your DB enforces this)
   const validNames = names.filter((name): name is NameWithVotes => 
     isGender(name.gender)
